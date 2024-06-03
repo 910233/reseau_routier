@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import java.util.Scanner;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
@@ -39,14 +40,39 @@ public class Metier
 	
 	public void ajouterVille (Ville Ville) { this.lstVilles.add(Ville); }
 
-	public void ajouterRoute (Route Route)
-	{
-		this.lstRoutes.add(Route);
-	}
-
 	public void sauvegarder()
 	{
+		try {
+			String chemin = System.getProperty("user.dir");
+			File fichier = new File(chemin + "CONSTANTE");
 
+			if (fichier.createNewFile())
+				System.out.println("Fichier crée");
+			else
+				System.out.println("Le fichier existe déja");
+
+
+			try {
+				PrintWriter pw = new PrintWriter( new FileOutputStream(fichier.getName()) );
+
+				for (int i = 0; i < lstVilles.size(); i++)
+				{
+					Ville ville = lstVilles.get(i);
+					pw.println(ville.getNom() + "|" + ville.getX() + "|" + ville.getY());
+				}
+
+				pw.println();
+
+				for (int i = 0; i < lstRoutes.size(); i++)
+				{
+					Route route = lstRoutes.get(i);
+					pw.println(route.getVilleArrivee() + "|" + route.getVilleDepart() + "|" + route.getTroncons());
+				}
+				pw.close();
+			}
+			catch (Exception e){ e.printStackTrace(); }
+		}
+		catch(Exception e) { System.out.println(e); }
 	}
 
 
