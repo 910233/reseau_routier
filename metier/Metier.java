@@ -45,6 +45,11 @@ public class Metier
 		this.lstVilles.add(Ville);
 	}
 
+	public void ajouterRoute (Route Route)
+	{
+		this.lstRoutes.add(Route);
+	}
+
 	public void sauvegarder()
 	{
 
