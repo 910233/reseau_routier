@@ -22,11 +22,11 @@ public class IHMGUI
 		this.frameRoute    = new FrameRoute  (ctrl);
 		this.frameVille    = new FrameVille(ctrl);
 
-		this.frameVille.setTitle    ("Villes");
-		this.frameVille.setSize     ( IHMGUI.LARGEUR_VILLE, IHMGUI.HAUTEUR );
-		this.frameVille.setLocation ( 20, 20 );
-		this.frameVille.setResizable(false);
-		this.frameVille.setVisible  ( true );
+		this.frameVille.setTitle       ("Villes");
+		this.frameVille.setSize        ( IHMGUI.LARGEUR_VILLE, IHMGUI.HAUTEUR );
+		this.frameVille.setLocation    ( 20, 20 );
+		this.frameVille.setResizable   (false);
+		this.frameVille.setVisible     ( true );
 		this.frameVille.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		this.frameResRoute.setTitle    ("Réseau routier");
@@ -36,11 +36,11 @@ public class IHMGUI
 		this.frameResRoute.setVisible  ( true );
 		this.frameResRoute.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		this.frameRoute.setTitle    ("Routes");
-		this.frameRoute.setSize      ( IHMGUI.LARGEUR_ROUTE, IHMGUI.HAUTEUR );
-		this.frameRoute.setLocation  ( IHMGUI.LARGEUR_VILLE + IHMGUI.LARGEUR_RR + 20, 20);
-		this.frameRoute.setResizable (false);
-		this.frameRoute.setVisible   ( true );
+		this.frameRoute.setTitle       ("Routes");
+		this.frameRoute.setSize        ( IHMGUI.LARGEUR_ROUTE, IHMGUI.HAUTEUR );
+		this.frameRoute.setLocation    ( IHMGUI.LARGEUR_VILLE + IHMGUI.LARGEUR_RR + 20, 20);
+		this.frameRoute.setResizable   (false);
+		this.frameRoute.setVisible     ( true );
 		this.frameRoute.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 

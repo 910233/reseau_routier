@@ -35,7 +35,7 @@ public class GrilleVillesModel extends AbstractTableModel
 			*/
 		}
 
-		this.tabEntetes = new String[]   {   "Prénom"  , "Nom"     , "Premium", "Année Adhésion"  };
+		this.tabEntetes = new String[]{ "Nom", "Coordonnées" };
 
 	}
 
