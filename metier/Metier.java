@@ -33,17 +33,11 @@ public class Metier
 		
 	}
 
-	public boolean majNomVille ( int ligne, String nom )
-	{
-		return this.lstVilles.get(ligne).setNom(nom);
-	}
 
-	//etc...
+	public boolean majXVille ( int ligne, Integer x ) { return this.lstVilles.get(ligne).setX(x); }
+	public boolean majYVille ( int ligne, Integer y ) { return this.lstVilles.get(ligne).setY(y); }
 	
-	public void ajouterVille (Ville Ville)
-	{
-		this.lstVilles.add(Ville);
-	}
+	public void ajouterVille (Ville Ville) { this.lstVilles.add(Ville); }
 
 	public void sauvegarder()
 	{
@@ -51,11 +45,8 @@ public class Metier
 	}
 
 
-	public List<Ville> getVilles()
-	{
-		return new ArrayList<Ville>( this.lstVilles );
-	}
-
+	public List<Ville> getVilles() { return new ArrayList<Ville>( this.lstVilles ); }
+	public List<Route> getRoutes() { return new ArrayList<Route>( this.lstRoutes ); }
 
 	public String toString()
 	{

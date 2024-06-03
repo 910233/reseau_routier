@@ -21,7 +21,7 @@ public class PanelTableVille extends JPanel
 		JScrollPane spGrilleDonnees;
 		
 		// Création des composants
-		this.tblGrilleDonnees = new JTable ( new GrilleVillesModel(ctrl) );
+		this.tblGrilleDonnees = new JTable ( new GrilleRoutesModel(ctrl) );
 		this.tblGrilleDonnees.setFillsViewportHeight(true);
 
  		spGrilleDonnees   = new JScrollPane( this.tblGrilleDonnees );

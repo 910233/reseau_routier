@@ -20,7 +20,7 @@ public class Controleur
 	}
 
 	// Accesseurs
-	//public List<Route> getRoutes() { return this.metier.getRoutes(); }
+	public List<Route> getRoutes() { return this.metier.getRoutes(); }
 	public List<Ville> getVilles() { return this.metier.getVilles(); }
 
 	// Modificateurs

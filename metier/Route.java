@@ -21,9 +21,9 @@ public class Route
 		return null;
 	}
 
-	public int   getTroncons () { return this.troncons    ; }
-	public Ville getVilleDepart   () { return this.villeDepart ; }
-	public Ville getVilleArrivee  () { return this.villeArrivee; }
+	public int   getNbTronc  () { return this.troncons    ; }
+	public Ville getVilleDep () { return this.villeDepart ; }
+	public Ville getVilleArr () { return this.villeArrivee; }
 
 	public boolean setTroncons (int troncons)
 	{
@@ -57,9 +57,9 @@ public class Route
 
 	public String toString() {
 		return "{" +
-			" troncons='" + getTroncons() + "'" +
-			", villeDepart='" + getVilleDepart() + "'" +
-			", villeArrivee='" + getVilleArrivee() + "'" +
+			" troncons='" + getNbTronc() + "'" +
+			", villeDepart='" + getVilleDep() + "'" +
+			", villeArrivee='" + getVilleArr() + "'" +
 			"}";
 	}
 

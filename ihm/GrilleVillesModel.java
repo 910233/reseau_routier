@@ -54,7 +54,7 @@ public class GrilleVillesModel extends AbstractTableModel
 
 		if ( col == 2 )
 		{
-			bRet = this.ctrl.majX ( row, (Integer) value );
+			bRet = this.ctrl.majXVille ( row, (Integer) value );
 			if ( bRet )
 			{
 				this.tabVilles[row][col] = value;
@@ -64,7 +64,7 @@ public class GrilleVillesModel extends AbstractTableModel
 		
 		if ( col == 3 )
 		{
-			bRet = this.ctrl.majY ( row, (Integer) value );
+			bRet = this.ctrl.majYVille ( row, (Integer) value );
 			if ( bRet )
 			{
 				this.tabVilles[row][col] = value;
