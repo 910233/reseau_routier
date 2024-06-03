@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Ville
 {
     private static int nbVilles = 0;
