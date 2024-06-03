@@ -20,12 +20,15 @@ public class Controleur
 	}
 
 	// Accesseurs
-	public List<Route> getRoutes() { return this.metier.getRoutes(); }
+	//public List<Route> getRoutes() { return this.metier.getRoutes(); }
 	public List<Ville> getVilles() { return this.metier.getVilles(); }
 
-	// Modificateurs (ignorez ça pour le moment)
-	//public boolean majPremiumClient ( int ligne, boolean val ) { return this.metier.majPremiumClient ( ligne, val ); }
-	//public boolean majAnneeAdhesion ( int ligne, int     val ) { return this.metier.majAnneeAdhesion ( ligne, val ); }
+	// Modificateurs
+	public boolean majNomVille ( int ligne, String nom ) 
+	{
+		return this.metier.majNomVille(ligne, nom); 
+	}
+	
 
 	// Autres Méthodes
 	public void sauvegarder()
