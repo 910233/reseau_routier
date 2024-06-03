@@ -4,6 +4,7 @@ import reseau_routier.metier.Metier;
 
 import java.util.List;
 
+import reseau_routier.ihm.FrameNvVille;
 import reseau_routier.ihm.IHMGUI;
 import reseau_routier.metier.Ville;
 import reseau_routier.metier.Route;
@@ -27,36 +28,15 @@ public class Controleur
 	public boolean majXVille ( int ligne, Integer x ) { return this.metier.majXVille(ligne, x); }
 	public boolean majYVille ( int ligne, Integer y ) { return this.metier.majYVille(ligne, y); }
 	
-
 	// Autres Méthodes
-	public void sauvegarder()
-	{
-		//this.metier.sauvegarder();
-	}
+	public void sauvegarder() { /*this.metier.sauvegarder();*/ }
 	
-	public void creerVille()
-	{
-		//new FrameNouvelleVille(this);
-	}
-
-	public void creerRoute()
-	{
-		//new FrameNouvelleRoute(this);
-	}
+	public void creerVille() { new FrameNvVille(this); }
+	public void creerRoute() { /*new FrameNvRoute(this);*/ }
 	
-	public void ajouterVille(Ville ville)
-	{
-		//this.metier.ajouterVille(ville);
-	}
-
-	public void ajouterRoute(Route route)
-	{
-		//this.metier.ajouterRoute(route);
-	}
+	public void ajouterVille(Ville ville) { this.metier.ajouterVille(ville); }
+	public void ajouterRoute(Route route) { /*this.metier.ajouterRoute(route);*/ }
 
 	public void deplacerLesFrames(char orig) { if(this.ihm != null) this.ihm.deplacerLesFrames(orig); }
-	public static void main(String[] a)
-	{
-		new Controleur();
-	}
+	public static void main(String[] a) { new Controleur(); }
 }

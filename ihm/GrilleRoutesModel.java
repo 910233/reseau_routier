@@ -32,7 +32,7 @@ public class GrilleRoutesModel extends AbstractTableModel
 			tabRoutes[lig][2] = route.getNbTronc  ();
 		}
 
-		this.tabEntetes = new String[]{ "Ville", "Vill Arr", "Nb Tronçon" };
+		this.tabEntetes = new String[]{ "Ville Dep", "Ville Arr", "Nb Tronçons" };
 
 	}
 
