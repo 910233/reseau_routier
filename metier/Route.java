@@ -13,7 +13,7 @@ public class Route
 		this.villeArrivee = villeArrivee;
 	}
 
-	public Route nvRoute (int troncons, Ville villeDepart, Ville villeArrivee)
+	public static Route nvRoute (int troncons, Ville villeDepart, Ville villeArrivee)
 	{
 		if (villeDepart != villeArrivee && troncons >= 0 && troncons <= 10)
 			return new Route(troncons, villeDepart, villeArrivee);
