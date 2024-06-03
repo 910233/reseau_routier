@@ -26,12 +26,36 @@ public class Metier
 
 	public void initTabVilles()
 	{
-		
+
 	}
 
 	public void initTabRoutes()
 	{
-		
+		Scanner     scFic;
+		Decomposeur dec;
+
+		String villeDepart;
+		String villeArrivee;
+		int nbTroncons;
+
+		try
+		{
+			scFic = new Scanner ( new FileInputStream ( "constante.data" ), "UTF8" );
+
+			while ( scFic.hasNextLine() )
+			{
+
+				dec = new Decomposeur ( scFic.nextLine() );
+
+				
+
+				//                                    nom                prenom         premium     anneeAdh
+				this.lstClients.add ( new Client ( dec.getString(1), dec.getString(0), bPremium, dec.getInt(3) ) );
+			}
+
+			scFic.close();
+		}
+		catch (Exception e){ e.printStackTrace(); }
 	}
 
 
@@ -44,7 +68,7 @@ public class Metier
 	{
 		try {
 			String chemin = System.getProperty("user.dir");
-			File fichier = new File(chemin + "CONSTANTE");
+			File fichier = new File(chemin + "constante.data");
 
 			if (fichier.createNewFile())
 				System.out.println("Fichier crée");
@@ -66,7 +90,7 @@ public class Metier
 				for (int i = 0; i < lstRoutes.size(); i++)
 				{
 					Route route = lstRoutes.get(i);
-					pw.println(route.getVilleArrivee() + "|" + route.getVilleDepart() + "|" + route.getTroncons());
+					pw.println(route.getVilleArrivee().getNom() + "|" + route.getVilleDepart().getNom() + "|" + route.getTroncons());
 				}
 				pw.close();
 			}
