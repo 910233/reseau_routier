@@ -25,7 +25,7 @@ public class Ville
 		this.lstRoutes = new ArrayList<Route>();
 	}
 
-	public Ville nvVille(String nom, int x, int y)
+	public static Ville nvVille(String nom, int x, int y)
 	{
 		if (x >= 0 && x <= 1000)
 			if (y >= 0 && y <= 800)
