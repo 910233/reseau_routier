@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import java.util.Scanner;
+
+import iut.algo.Decomposeur;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -24,6 +27,7 @@ public class Metier
 		//this.initTabRoutes();
 	}
 
+	/*
 	public void initTabVilles()
 	{
 		Scanner     scFic;
@@ -55,7 +59,9 @@ public class Metier
 		}
 		catch (Exception e){ e.printStackTrace(); }
 	}
+	*/
 
+	/*
 	public void initTabRoutes()
 	{
 		Scanner     scFic;
@@ -92,7 +98,7 @@ public class Metier
 		}
 		catch (Exception e){ e.printStackTrace(); }
 	}
-
+	*/
 
 	public boolean majXVille ( int ligne, Integer x ) { return this.lstVilles.get(ligne).setX(x); }
 	public boolean majYVille ( int ligne, Integer y ) { return this.lstVilles.get(ligne).setY(y); }
@@ -125,7 +131,7 @@ public class Metier
 				for (int i = 0; i < lstRoutes.size(); i++)
 				{
 					Route route = lstRoutes.get(i);
-					pw.println(route.getVilleDep().getNom() + "|" + route.getVilleArr().getNom() + "|" + route.getTroncons());
+					pw.println(route.getVilleDep().getNom() + "|" + route.getVilleArr().getNom() + "|" + route.getNbTronc());
 				}
 				pw.close();
 			}
