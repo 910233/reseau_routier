@@ -80,7 +80,7 @@ public class Ville
 
 		for (int i = 0; i < getLstRoutes().size(); i++)
 		{
-			sRes += getLstRoutes().get(i).getDepart().getNom() + "->" + getLstRoutes().get(i).getArVille().getNom() + " / ";
+			sRes += getLstRoutes().get(i).getVilleDepart().getNom() + "->" + getLstRoutes().get(i).getVilleArrivee().getNom() + " / ";
 		}
 
 		sRes += "'" + "}";
