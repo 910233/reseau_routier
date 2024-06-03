@@ -7,14 +7,14 @@ import java.awt.event.ComponentEvent;
 
 import javax.swing.JFrame;
 
-public class FrameRoute extends JFrame
+public class FrameResRoute extends JFrame
 {
 	private Controleur ctrl;
 
-	public FrameRoute(Controleur ctrl)
+	public FrameResRoute(Controleur ctrl)
 	{
 		this.ctrl = ctrl;
-
+		
 		// Création des composants
 		
 
@@ -30,7 +30,7 @@ public class FrameRoute extends JFrame
 	{
 		public void componentMoved (ComponentEvent e)
 		{
-			FrameRoute.this.ctrl.deplacerLesFrames('R');
+			FrameResRoute.this.ctrl.deplacerLesFrames('G');
 		}
 	}
 }

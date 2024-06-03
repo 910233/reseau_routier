@@ -13,4 +13,10 @@ public class Controleur
 		this.metier = new Metier ();
 		this.ihm    = new IHMGUI (this);
 	}
+
+	public void deplacerLesFrames(char orig) { if(this.ihm != null) this.ihm.deplacerLesFrames(orig); }
+	public static void main(String[] a)
+	{
+		new Controleur();
+	}
 }
