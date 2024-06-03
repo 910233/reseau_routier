@@ -1,3 +1,5 @@
+package reseau_routier.metier;
+
 public class Route
 {
 	private int troncons;

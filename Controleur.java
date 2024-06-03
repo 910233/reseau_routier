@@ -53,11 +53,6 @@ public class Controleur
 		//this.metier.ajouterRoute(route);
 	}
 
-	public void sauvegarder()
-	{
-		//this.metier.sauvegarder();
-	}
-
 	public void deplacerLesFrames(char orig) { if(this.ihm != null) this.ihm.deplacerLesFrames(orig); }
 	public static void main(String[] a)
 	{

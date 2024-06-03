@@ -27,10 +27,12 @@ public class GrilleVillesModel extends AbstractTableModel
 		{
 			clt = lstVilles.get(lig);
 
+			/*
 			tabVilles[lig][0] = clt.getPrenom  ();
 			tabVilles[lig][1] = clt.getNom     ();
 			tabVilles[lig][2] = clt.getPremium ();
 			tabVilles[lig][3] = clt.getAnneeAdh();
+			*/
 		}
 
 		this.tabEntetes = new String[]   {   "Prénom"  , "Nom"     , "Premium", "Année Adhésion"  };
