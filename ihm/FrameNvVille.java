@@ -9,7 +9,7 @@ import reseau_routier.metier.Ville;
 
 public class FrameNvVille extends JFrame
 {
-	private Controleur               ctrl;
+	private Controleur         ctrl;
 	private PanelNvVilleSaisie panelSaisie;
 	private PanelNvVilleAction panelAction;
 
@@ -30,10 +30,7 @@ public class FrameNvVille extends JFrame
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
-	public void annuler ()
-	{
-		this.dispose();
-	}
+	public void annuler () { this.dispose(); }
 	
 	public void valider ()
 	{
