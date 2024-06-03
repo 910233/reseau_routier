@@ -24,10 +24,8 @@ public class Controleur
 	public List<Ville> getVilles() { return this.metier.getVilles(); }
 
 	// Modificateurs
-	public boolean majNomVille ( int ligne, String nom ) 
-	{
-		return this.metier.majNomVille(ligne, nom); 
-	}
+	public boolean majXVille ( int ligne, Integer x ) { return this.metier.majXVille(ligne, x); }
+	public boolean majYVille ( int ligne, Integer y ) { return this.metier.majYVille(ligne, y); }
 	
 
 	// Autres Méthodes

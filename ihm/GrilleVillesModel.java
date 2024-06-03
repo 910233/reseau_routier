@@ -18,24 +18,22 @@ public class GrilleVillesModel extends AbstractTableModel
 	{
 		this.ctrl = ctrl;
 
-		Ville clt;
+		Ville ville;
 		List<Ville> lstVilles = this.ctrl.getVilles();
 
 		tabVilles = new Object[lstVilles.size()][4];
 
 		for ( int lig=0; lig<lstVilles.size(); lig++)
 		{
-			clt = lstVilles.get(lig);
+			ville = lstVilles.get(lig);
 
-			/*
-			tabVilles[lig][0] = clt.getPrenom  ();
-			tabVilles[lig][1] = clt.getNom     ();
-			tabVilles[lig][2] = clt.getPremium ();
-			tabVilles[lig][3] = clt.getAnneeAdh();
-			*/
+			tabVilles[lig][0] = ville.getNb  ();
+			tabVilles[lig][1] = ville.getNom ();
+			tabVilles[lig][2] = ville.getX   ();
+			tabVilles[lig][3] = ville.getY   ();
 		}
 
-		this.tabEntetes = new String[]{ "Nom", "Coordonnées" };
+		this.tabEntetes = new String[]{ "Numéro", "Nom", "X", "Y" };
 
 	}
 
@@ -50,14 +48,13 @@ public class GrilleVillesModel extends AbstractTableModel
 		return col == 2 || col == 3;
 	}
 
-	/*
 	public void setValueAt(Object value, int row, int col)
 	{
 		boolean bRet;
 
 		if ( col == 2 )
 		{
-			bRet = this.ctrl.majPremiumVille ( row, (Boolean) value );
+			bRet = this.ctrl.majX ( row, (Integer) value );
 			if ( bRet )
 			{
 				this.tabVilles[row][col] = value;
@@ -67,7 +64,7 @@ public class GrilleVillesModel extends AbstractTableModel
 		
 		if ( col == 3 )
 		{
-			bRet = this.ctrl.majAnneeAdhesion ( row, (Integer) value );
+			bRet = this.ctrl.majY ( row, (Integer) value );
 			if ( bRet )
 			{
 				this.tabVilles[row][col] = value;
@@ -76,6 +73,5 @@ public class GrilleVillesModel extends AbstractTableModel
 		}
  		
 	}
-	*/
 
 }
