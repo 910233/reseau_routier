@@ -25,19 +25,31 @@ public class Route
 
 	public boolean setTroncons (int troncons)
 	{
-		this.troncons = troncons;
-		return true;
+		if (troncons >= 0 && troncons <= 10)
+		{
+			this.troncons = troncons;
+			return true;
+		}
+		return false;
 	}
 
 	public boolean setDepart (Ville villeDepart)
 	{
-		this.villeDepart = villeDepart;
-		return true;
+		if (villeDepart != this.villeArrivee)
+		{
+			this.villeDepart = villeDepart;
+			return true;
+		}
+		return false;
 	}
 
 	public boolean setArrivee (Ville villeArrivee)
 	{
-		this.villeArrivee = villeArrivee;
-		return true;
+		if (villeArrivee != this.villeDepart)
+		{
+			this.villeArrivee = villeArrivee;
+			return true;
+		}
+		return false;
 	}
 }
