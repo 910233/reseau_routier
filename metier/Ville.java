@@ -30,11 +30,11 @@ public class Ville
         return null;
     }
 
-    public String getNom      () { return this.nom       ;}
-    public int    getX        () { return this.x         ;}
-    public int    getY        () { return this.y         ;}
-    public int    getNb       () { return this.nb        ;}
-    public List   getLstRoutes() { return this.lstRoutes ;}
+    public String      getNom      () { return this.nom       ;}
+    public int         getX        () { return this.x         ;}
+    public int         getY        () { return this.y         ;}
+    public int         getNb       () { return this.nb        ;}
+    public List<Route> getLstRoutes() { return this.lstRoutes ;}
 
     public boolean setNom(String nom)
     {
@@ -60,5 +60,11 @@ public class Ville
             return true;
         }
         return false;
+    }
+
+    public boolean ajouterRoute(Route route)
+    {
+        this.lstRoutes.add(route);
+        return true;
     }
 }
