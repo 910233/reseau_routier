@@ -26,7 +26,34 @@ public class Metier
 
 	public void initTabVilles()
 	{
+		Scanner     scFic;
+		Decomposeur dec;
 
+		String nom;
+		int x;
+		int y;
+
+		try
+		{
+			scFic = new Scanner ( new FileInputStream ( "constante.data" ), "UTF8" );
+
+			while ( scFic.hasNextLine() && !scFic.nextLine().equals("") )
+			{
+				dec = new Decomposeur ( scFic.nextLine() );
+
+				String[] param = dec.split("|");
+
+				nom  = param[0];
+				x    = param[1];
+				y    = param[3];
+
+
+				lstRoutes.add (Ville.nvVille(nom, x, y));
+			}
+
+			scFic.close();
+		}
+		catch (Exception e){ e.printStackTrace(); }
 	}
 
 	public void initTabRoutes()
@@ -58,7 +85,7 @@ public class Metier
 				nbTroncons   = param[3];
 
 
-				this.lstRoutes.add (nvRoute(nbTroncons,villeDepart,villeArrivee));
+				this.lstRoutes.add (Route.nvRoute(nbTroncons,villeDepart,villeArrivee));
 			}
 
 			scFic.close();
