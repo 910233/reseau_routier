@@ -142,8 +142,30 @@ public class Metier
 	}
 
 
-	public List<Ville> getVilles() { return new ArrayList<Ville>( this.lstVilles ); }
-	public List<Route> getRoutes() { return new ArrayList<Route>( this.lstRoutes ); }
+	public List<Ville> getVilles  () { return new ArrayList<Ville>( this.lstVilles ); }
+	public List<Route> getRoutes  () { return new ArrayList<Route>( this.lstRoutes ); }
+	public int         getNbVille () { return this.lstVilles.size();                  }
+
+	public Ville getVille ( int num ) { return this.lstVilles.get(num); }
+
+	public Integer getIndiceVille ( int x, int y )
+	{
+		for (int cpt = 0; cpt<this.lstVilles.size(); cpt++ )
+			if ( this.lstVilles.get(cpt).possede ( x, y ) )
+				return cpt;
+
+		return null;
+	}
+
+	public void deplacerVille ( Integer numVille, int x, int y )
+	{
+		if ( numVille != null && numVille >=0 && numVille < this.lstVilles.size() )
+		{
+			this.lstVilles.get(numVille).deplacerX(x);
+			this.lstVilles.get(numVille).deplacerY(y);
+		}
+		
+	}	
 
 	public String toString()
 	{
@@ -154,6 +176,7 @@ public class Metier
 
 		return sRet;
 	}
+
 
 }
 

@@ -6,6 +6,8 @@ import java.util.Objects;
 
 public class Ville
 {
+	public static final int TAILLE = 50;
+	
 	private static int nbVilles = 0;
 	private        int nb;
 
@@ -90,5 +92,21 @@ public class Ville
 		sRes += "'" + "}";
 
 		return sRes;
+	}
+	void deplacerX (int x) { this.x += x;         }
+	void deplacerY (int y) { this.y += y;         }
+	
+	boolean possede ( int x, int y )
+	{
+		int xA, yA;
+
+		return this.distance(this.x, this.y, x, y) <= Ville.TAILLE/2;
+
+		//return this.distance(this.getCentreX(), this.getCentreY(), x, y) <= this.distance(this.getCentreX(), this.getCentreY(), this.getCentreX(), this.getCentreY())
+	}
+
+	private double distance(int x1, int y1, int x2, int y2)
+	{
+		return Math.sqrt((x1-x2) * (x1-x2) + (y1-y2) * (y1-y2));
 	}
 }

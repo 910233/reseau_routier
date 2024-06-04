@@ -79,9 +79,10 @@ public class IHMGUI
 		}
 	}
 
-	public void majTableau() 
+	public void maj() 
 	{
 		this.frameVille.majTableau();
 		this.frameRoute.majTableau();
+		this.frameResRoute.maj();
 	}
 }

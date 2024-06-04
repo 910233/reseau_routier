@@ -38,14 +38,25 @@ public class Controleur
 	public void ajouterVille(Ville ville) 
 	{ 
 		this.metier.ajouterVille(ville); 
-		this.ihm.majTableau();
+		this.ihm.maj();
 	}
 	public void ajouterRoute(Route route) 
 	{
 		this.metier.ajouterRoute(route); 
-		this.ihm.majTableau();
+		this.ihm.maj();
 	}
 
 	public void deplacerLesFrames(char orig) { if(this.ihm != null) this.ihm.deplacerLesFrames(orig); }
+
+	public int     getNbVille     ()             { return this.metier.getNbVille();         }
+	public Ville   getVille       (int num)      { return this.metier.getVille  (num);      }
+	public Integer getIndiceVille (int x, int y) { return this.metier.getIndiceVille(x, y); }
+	
+	public void deplacerVille(Integer numVilleActive, int x, int y) 
+	{
+		this.metier.deplacerVille(numVilleActive, x, y);
+		this.ihm.maj();
+	}
+
 	public static void main(String[] a) { new Controleur(); }
 }

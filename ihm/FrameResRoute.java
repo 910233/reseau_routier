@@ -9,19 +9,14 @@ import javax.swing.JFrame;
 
 public class FrameResRoute extends JFrame
 {
-	private Controleur ctrl;
+	private Controleur    ctrl;
+	private PanelResRoute panelResRoute;
 
 	public FrameResRoute(Controleur ctrl)
 	{
 		this.ctrl = ctrl;
-		
-		// Création des composants
-		
-
-		// Positionnement des composants
-		
-
-		// Activation des composants
+		this.panelResRoute = new PanelResRoute( ctrl );
+		this.add ( this.panelResRoute );
 		this.addComponentListener( new GereFrame() );
 	}
 
@@ -32,5 +27,10 @@ public class FrameResRoute extends JFrame
 		{
 			FrameResRoute.this.ctrl.deplacerLesFrames('G');
 		}
+	}
+
+
+	public void maj() {
+		this.panelResRoute.repaint();
 	}
 }
