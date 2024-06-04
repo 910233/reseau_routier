@@ -27,9 +27,11 @@ public class Ville
 
 	public static Ville nvVille(String nom, int x, int y)
 	{
-		if (x >= 0 && x <= 1000)
-			if (y >= 0 && y <= 800)
-				return new Ville(nom,x,y);
+		if (   0 <= x && x <= 1000 
+		    && 0 <= y && y <= 800 
+			&& !"".equals(nom))
+			return new Ville(nom,x,y);
+			
 		return null;
 	}
 

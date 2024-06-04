@@ -18,6 +18,13 @@ public class GrilleVillesModel extends AbstractTableModel
 	{
 		this.ctrl = ctrl;
 
+		this.majDonnees();
+
+		this.tabEntetes = new String[]{ "Numéro", "Nom", "X", "Y" };
+	}
+
+	public void majDonnees()
+	{
 		Ville ville;
 		List<Ville> lstVilles = this.ctrl.getVilles();
 
@@ -33,8 +40,7 @@ public class GrilleVillesModel extends AbstractTableModel
 			tabVilles[lig][3] = ville.getY   ();
 		}
 
-		this.tabEntetes = new String[]{ "Numéro", "Nom", "X", "Y" };
-
+		this.fireTableDataChanged();
 	}
 
 	public int    getColumnCount()                 { return this.tabEntetes.length;      }

@@ -30,6 +30,11 @@ public class FrameVille extends JFrame
 		// Activation des composants
 		this.addComponentListener( new GereFrame() );
 	}
+	
+	public void majTableau()
+	{
+		this.panelTableVille.majTableau();
+	}
 
 
 	private class GereFrame extends ComponentAdapter

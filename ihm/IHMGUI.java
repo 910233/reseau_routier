@@ -78,4 +78,8 @@ public class IHMGUI
 			}
 		}
 	}
+
+	public void majTableau() {
+		this.frameVille.majTableau();
+	}
 }

@@ -34,7 +34,12 @@ public class Controleur
 	public void creerVille() { new FrameNvVille(this); }
 	public void creerRoute() { /*new FrameNvRoute(this);*/ }
 	
-	public void ajouterVille(Ville ville) { this.metier.ajouterVille(ville); }
+	public void ajouterVille(Ville ville) 
+	{ 
+		this.metier.ajouterVille(ville); 
+		System.out.println("maj");
+		this.ihm.majTableau();
+	}
 	public void ajouterRoute(Route route) { /*this.metier.ajouterRoute(route);*/ }
 
 	public void deplacerLesFrames(char orig) { if(this.ihm != null) this.ihm.deplacerLesFrames(orig); }

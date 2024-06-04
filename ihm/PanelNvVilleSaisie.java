@@ -36,11 +36,16 @@ public class PanelNvVilleSaisie  extends JPanel
 		String nom;
 		int x, y;
 		
-		nom = this.txtNom.getText();
-		x   = Integer.parseInt(this.txtX.getText());
-		y   = Integer.parseInt(this.txtY.getText());
-		
-		ville = Ville.nvVille(nom, x, y);
+		try {
+			nom = this.txtNom.getText();
+			x   = Integer.parseInt(this.txtX.getText());
+			y   = Integer.parseInt(this.txtY.getText());
+			ville = Ville.nvVille(nom, x, y);
+		} 
+		catch (Exception e) 
+		{
+			ville = null;
+		}
 
 		return ville;
 	}

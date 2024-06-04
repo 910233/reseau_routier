@@ -5,7 +5,7 @@ import java.util.List;
 
 import java.util.Scanner;
 
-import iut.algo.Decomposeur;
+//import iut.algo.Decomposeur;
 
 import java.io.File;
 import java.io.FileInputStream;
