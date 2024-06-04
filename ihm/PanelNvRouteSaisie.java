@@ -10,6 +10,7 @@ public class PanelNvRouteSaisie  extends JPanel implements Saisie,AdjustmentList
 {
 	private JTextField txtVilleDep, txtVilleArr;
 	private JScrollBar sbNbTronc;
+	private JLabel     lblTronc;
 
 	public PanelNvRouteSaisie()
 	{
@@ -19,13 +20,14 @@ public class PanelNvRouteSaisie  extends JPanel implements Saisie,AdjustmentList
 		this.txtVilleDep = new JTextField();
 		this.txtVilleArr = new JTextField();
 		this.sbNbTronc   = new JScrollBar ( JScrollBar.HORIZONTAL, 0, 1, 0, 11 );
+		this.lblTronc    = new JLabel("Nb Tronçons : 0");
 
 		// Positionnement des composants
 		this.add(new JLabel("Ville Dep   : "));
 		this.add(this.txtVilleDep);
 		this.add(new JLabel("Ville Arr   : "));
 		this.add(this.txtVilleArr);
-		this.add(new JLabel("Nb Tronçons : "));
+		this.add(lblTronc);
 		this.add(this.sbNbTronc);
 		
 		// Activation des composants
@@ -62,6 +64,6 @@ public class PanelNvRouteSaisie  extends JPanel implements Saisie,AdjustmentList
 	public void adjustmentValueChanged ( AdjustmentEvent e )
 	{
 		if ( e.getSource() == this.sbNbTronc )
-			System.out.println(this.sbNbTronc.getValue());
+			this.lblTronc.setText("Nb Tronçons : " + this.sbNbTronc.getValue());
 	}
 }
