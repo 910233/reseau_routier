@@ -23,7 +23,7 @@ public abstract class FrameNvD extends JFrame
 
 		this.setSize ( 500, 250 );
 		this.setVisible ( true );
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
 	
 	public void annuler () { this.dispose(); }
