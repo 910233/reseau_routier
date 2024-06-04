@@ -5,7 +5,7 @@ import javax.swing.*;
 
 import reseau_routier.metier.Ville;
 
-public class PanelNvVilleSaisie  extends JPanel
+public class PanelNvVilleSaisie extends JPanel implements Saisie
 {
 	private JTextField  txtNom, txtX, txtY;
 
@@ -30,12 +30,11 @@ public class PanelNvVilleSaisie  extends JPanel
 
 	}
 	
-	public Ville getNouvelleVille()
-	{
+	public Ville getNvVille() {
 		Ville ville;
 		String nom;
 		int x, y;
-		
+
 		try {
 			nom = this.txtNom.getText();
 			x   = Integer.parseInt(this.txtX.getText());

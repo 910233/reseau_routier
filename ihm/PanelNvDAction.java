@@ -3,19 +3,19 @@ package reseau_routier.ihm;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class PanelNvVilleAction extends JPanel implements ActionListener
+public class PanelNvDAction extends JPanel implements ActionListener
 {
-	private FrameNvVille frame;
-	private JButton            btnValider;
-	private JButton            btnAnnuler;
+	private FrameNvD frame;
+	private JButton  btnValider;
+	private JButton  btnAnnuler;
 
-	public PanelNvVilleAction (FrameNvVille frame )
+	public PanelNvDAction (FrameNvD frame)
 	{
 		this.frame = frame;
 
 		// création des composants
 		this.btnValider = new JButton ( "Valider" );
-		this.btnAnnuler     = new JButton ( "Annuler" );
+		this.btnAnnuler = new JButton ( "Annuler" );
 
 		// Positionnement des composants
 		this.add ( this.btnValider );

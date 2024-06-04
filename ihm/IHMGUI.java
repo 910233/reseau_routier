@@ -8,9 +8,9 @@ import reseau_routier.Controleur;
 public class IHMGUI
 {
 	private static final int HAUTEUR       = 800;
-	private static final int HAUTEUR_RR    = 600;
-	private static final int HAUTEUR_ROUTE = 600;
-	private static final int HAUTEUR_VILLE = 600;
+	//private static final int HAUTEUR_RR    = 600;
+	//private static final int HAUTEUR_ROUTE = 600;
+	//private static final int HAUTEUR_VILLE = 600;
 	private static final int LARGEUR_RR    = 1000;
 	private static final int LARGEUR_ROUTE = 250;
 	private static final int LARGEUR_VILLE = 250;
@@ -49,9 +49,9 @@ public class IHMGUI
 
 	public void deplacerLesFrames ( char orig )
 	{
-		if(   this.frameResRoute     != null 
-		    && this.frameRoute     != null 
-			&& this.frameVille != null)
+		if(    this.frameResRoute != null 
+		    && this.frameRoute    != null 
+			&& this.frameVille    != null)
 		{
 			Point p;
 			// Représentation Graphique (G)
@@ -79,7 +79,9 @@ public class IHMGUI
 		}
 	}
 
-	public void majTableau() {
+	public void majTableau() 
+	{
 		this.frameVille.majTableau();
+		this.frameRoute.majTableau();
 	}
 }

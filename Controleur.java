@@ -4,6 +4,7 @@ import reseau_routier.metier.Metier;
 
 import java.util.List;
 
+import reseau_routier.ihm.FrameNvRoute;
 import reseau_routier.ihm.FrameNvVille;
 import reseau_routier.ihm.IHMGUI;
 import reseau_routier.metier.Ville;
@@ -32,15 +33,18 @@ public class Controleur
 	public void sauvegarder() { /*this.metier.sauvegarder();*/ }
 	
 	public void creerVille() { new FrameNvVille(this); }
-	public void creerRoute() { /*new FrameNvRoute(this);*/ }
+	public void creerRoute() { new FrameNvRoute(this); }
 	
 	public void ajouterVille(Ville ville) 
 	{ 
 		this.metier.ajouterVille(ville); 
-		System.out.println("maj");
 		this.ihm.majTableau();
 	}
-	public void ajouterRoute(Route route) { /*this.metier.ajouterRoute(route);*/ }
+	public void ajouterRoute(Route route) 
+	{
+		this.metier.ajouterRoute(route); 
+		this.ihm.majTableau();
+	}
 
 	public void deplacerLesFrames(char orig) { if(this.ihm != null) this.ihm.deplacerLesFrames(orig); }
 	public static void main(String[] a) { new Controleur(); }

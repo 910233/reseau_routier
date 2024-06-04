@@ -103,7 +103,8 @@ public class Metier
 	public boolean majXVille ( int ligne, Integer x ) { return this.lstVilles.get(ligne).setX(x); }
 	public boolean majYVille ( int ligne, Integer y ) { return this.lstVilles.get(ligne).setY(y); }
 	
-	public void ajouterVille (Ville Ville) { this.lstVilles.add(Ville); }
+	public void ajouterVille (Ville ville) { this.lstVilles.add(ville); }
+	public void ajouterRoute (Route route) { this.lstRoutes.add(route); }
 
 	public void sauvegarder()
 	{

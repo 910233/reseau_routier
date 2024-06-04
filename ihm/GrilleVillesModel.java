@@ -47,7 +47,7 @@ public class GrilleVillesModel extends AbstractTableModel
 	public int    getRowCount   ()                 { return this.tabVilles.length;      }
 	public String getColumnName (int col)          { return this.tabEntetes[col];        }
 	public Object getValueAt    (int row, int col) { return this.tabVilles[row][col];   }
-	public Class  getColumnClass(int c)            { return getValueAt(0, c).getClass(); }
+	//public Class  getColumnClass(int c)            { return getValueAt(0, c).getClass(); }
 
 	public boolean isCellEditable(int row, int col)
 	{

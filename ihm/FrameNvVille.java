@@ -1,44 +1,26 @@
 package reseau_routier.ihm;
 
 import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
 
 import reseau_routier.Controleur;
 import reseau_routier.metier.Ville;
 
-public class FrameNvVille extends JFrame
+public class FrameNvVille extends FrameNvD
 {
-	private Controleur         ctrl;
-	private PanelNvVilleSaisie panelSaisie;
-	private PanelNvVilleAction panelAction;
-
 	public FrameNvVille (Controleur ctrl)
-	{
-		this.ctrl = ctrl;
-		this.setSize ( 500, 250 );
-
-		// Création des composants
-		this.panelSaisie = new PanelNvVilleSaisie ();
-		this.panelAction = new PanelNvVilleAction ( this );
-
-		// Positionnement des composants
-		this.add ( this.panelSaisie, BorderLayout.CENTER );
-		this.add ( this.panelAction, BorderLayout.SOUTH  );
-
-		this.setVisible ( true );
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	{ 
+		super(ctrl);
+		this.panelSaisie = new PanelNvVilleSaisie();
+		this.add((PanelNvVilleSaisie) this.panelSaisie, BorderLayout.CENTER); 
 	}
-	
-	public void annuler () { this.dispose(); }
 	
 	public void valider ()
 	{
-		Ville ville = this.panelSaisie.getNouvelleVille();
-		System.out.println(ville);
-		if(ville != null)
+		Ville saisie = ((PanelNvVilleSaisie)this.panelSaisie).getNvVille();
+		System.out.println(saisie);
+		if(saisie != null)
 		{
-			this.ctrl.ajouterVille (ville);
+			this.ctrl.ajouterVille (saisie);
 			this.dispose();
 		}
 		else

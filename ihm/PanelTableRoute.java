@@ -5,13 +5,13 @@ import javax.swing.*;
 import reseau_routier.Controleur;
 
 
-public class PanelTableVille extends JPanel
+public class PanelTableRoute extends JPanel
 {
 	private Controleur        ctrl;
-	private GrilleVillesModel grilleDonnees;
+	private GrilleRoutesModel grilleDonnees;
 	private JTable            tblGrilleDonnees;
 
-	public PanelTableVille (Controleur ctrl)
+	public PanelTableRoute (Controleur ctrl)
 	{
 		this.ctrl = ctrl;
 
@@ -20,7 +20,7 @@ public class PanelTableVille extends JPanel
 		JScrollPane spGrilleDonnees;
 		
 		// Création des composants
-		this.grilleDonnees    = new GrilleVillesModel( this.ctrl );
+		this.grilleDonnees    = new GrilleRoutesModel( this.ctrl );
 		this.tblGrilleDonnees = new JTable ( this.grilleDonnees );
 		this.tblGrilleDonnees.setFillsViewportHeight(true);
 

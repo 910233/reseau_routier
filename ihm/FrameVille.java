@@ -2,32 +2,33 @@ package reseau_routier.ihm;
 
 import reseau_routier.Controleur;
 
-import java.awt.BorderLayout;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
-import javax.swing.JFrame;
-
-public class FrameVille extends JFrame
+public class FrameVille extends JFrame implements ActionListener
 {
 	private Controleur ctrl;
 
-	private PanelTableVille  panelTableVille;
-	private PanelActionVille panelActionVille;
+	private  JButton         btnCreerVille;
+	private PanelTableVille panelTableVille;
 
 	public FrameVille(Controleur ctrl)
 	{
 		this.ctrl = ctrl;
 
 		// Création des composants
-		this.panelActionVille = new PanelActionVille (this.ctrl);
-		this.panelTableVille  = new PanelTableVille  (this.ctrl);
+		this.panelTableVille  = new PanelTableVille (this.ctrl);
+		this.btnCreerVille     = new JButton ( "Créer Ville" );
+		JPanel panelCreerVille = new JPanel();
 
 		// Positionnement des composants
-		this.add ( this.panelActionVille, BorderLayout.NORTH  );
+		panelCreerVille.add ( this.btnCreerVille );
+		this.add ( panelCreerVille,  BorderLayout.NORTH  );
 		this.add ( this.panelTableVille,  BorderLayout.CENTER );
 
 		// Activation des composants
+		this.btnCreerVille.addActionListener ( this );
 		this.addComponentListener( new GereFrame() );
 	}
 	
@@ -36,6 +37,11 @@ public class FrameVille extends JFrame
 		this.panelTableVille.majTableau();
 	}
 
+	public void actionPerformed ( ActionEvent e)
+	{
+		if ( e.getSource() == this.btnCreerVille)
+			this.ctrl.creerVille ();
+	}
 
 	private class GereFrame extends ComponentAdapter
 	{
