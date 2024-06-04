@@ -30,7 +30,7 @@ public class Controleur
 	public boolean majYVille ( int ligne, Integer y ) { return this.metier.majYVille(ligne, y); }
 	
 	// Autres Méthodes
-	public void sauvegarder() { /*this.metier.sauvegarder();*/ }
+	public void sauvegarder() { this.metier.sauvegarder(); }
 	
 	public void creerVille() { new FrameNvVille(this); }
 	public void creerRoute() { new FrameNvRoute(this); }

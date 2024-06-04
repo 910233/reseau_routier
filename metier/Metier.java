@@ -5,8 +5,6 @@ import java.util.List;
 
 import java.util.Scanner;
 
-//import iut.algo.Decomposeur;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -23,82 +21,49 @@ public class Metier
 	{
 		this.lstVilles = new ArrayList<Ville>();
 		this.lstRoutes = new ArrayList<Route>();
-		//this.initTabVilles();
-		//this.initTabRoutes();
+		this.initVillesRoutes();
 	}
 
-	/*
-	public void initTabVilles()
+	public void initVillesRoutes()
 	{
-		Scanner     scFic;
-		Decomposeur dec;
+		Scanner scFic, scLig;
 
-		String nom;
-		int x;
-		int y;
+		String nom, villeDep, villeArr;
+		int x, y, nbTronc;
 
 		try
 		{
-			scFic = new Scanner ( new FileInputStream ( "constante.data" ), "UTF8" );
+			scFic = new Scanner ( new FileInputStream ( "donnees.data" ), "UTF8" );
 
-			while ( scFic.hasNextLine() && !scFic.nextLine().equals("") )
+			if(scFic.hasNextLine()) scFic.nextLine();
+			while ( scFic.hasNextLine() && !scFic.nextLine().equals("Routes"))
 			{
-				dec = new Decomposeur ( scFic.nextLine() );
+				scLig = new Scanner(scFic.nextLine());
+				scLig.useDelimiter("\tab");
 
-				String[] param = dec.split("|");
+				nom = scLig.next();
+				x   = scLig.nextInt();
+				y   = scLig.nextInt();
 
-				nom  = param[0];
-				x    = param[1];
-				y    = param[3];
-
-
-				lstRoutes.add (Ville.nvVille(nom, x, y));
+				lstVilles.add (Ville.nvVille(nom, x, y));
 			}
 
+			if(scFic.hasNextLine()) scFic.nextLine();
+			while ( scFic.hasNextLine() && !scFic.nextLine().equals(""))
+			{
+				scLig = new Scanner(scFic.nextLine());
+				scLig.useDelimiter("\tab");
+
+				villeDep = scLig.next();
+				villeArr = scLig.next();
+				nbTronc  = scLig.nextInt();
+
+				lstRoutes.add (Route.nvRoute(nbTronc, this.getVille(villeDep), this.getVille(villeArr)));
+			}
 			scFic.close();
 		}
-		catch (Exception e){ e.printStackTrace(); }
+		catch (Exception e){}
 	}
-	*/
-
-	/*
-	public void initTabRoutes()
-	{
-		Scanner     scFic;
-		Decomposeur dec;
-
-		String villeDepart;
-		String villeArrivee;
-		int nbTroncons;
-
-		try
-		{
-			scFic = new Scanner ( new FileInputStream ( "constante.data" ), "UTF8" );
-
-			while (scFic.hasNextLine() && !scFic.nextLine().equals(""))
-			{
-				System.out.println("ville");
-			}
-
-			while ( scFic.hasNextLine() )
-			{
-				dec = new Decomposeur ( scFic.nextLine() );
-
-				String[] param = dec.split("|");
-
-				villeDepart  = param[0];
-				villeArrivee = param[1];
-				nbTroncons   = param[3];
-
-
-				this.lstRoutes.add (Route.nvRoute(nbTroncons,villeDepart,villeArrivee));
-			}
-
-			scFic.close();
-		}
-		catch (Exception e){ e.printStackTrace(); }
-	}
-	*/
 
 	public boolean majXVille ( int ligne, Integer x ) { return this.lstVilles.get(ligne).setX(x); }
 	public boolean majYVille ( int ligne, Integer y ) { return this.lstVilles.get(ligne).setY(y); }
@@ -108,37 +73,30 @@ public class Metier
 
 	public void sauvegarder()
 	{
-		try {
-			String chemin = System.getProperty("user.dir");
-			File fichier = new File(chemin + "constante.data");
+		try
+		{
+			PrintWriter pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream("donnees.data"), "UTF8" ));
 
-			if (fichier.createNewFile())
-				System.out.println("Fichier crée");
-			else
-				System.out.println("Le fichier existe déja");
+			pw.println("Villes\n");
+			for (Ville v : this.lstVilles )
+			{
+				pw.println ( v.getNom () + "\t" +
+				             v.getX   () + "\t" +
+				             v.getY   () + "\n"   );
 
-
-			try {
-				PrintWriter pw = new PrintWriter( new FileOutputStream(fichier.getName()) );
-
-				for (int i = 0; i < lstVilles.size(); i++)
-				{
-					Ville ville = lstVilles.get(i);
-					pw.println(ville.getNom() + "|" + ville.getX() + "|" + ville.getY());
-				}
-
-				pw.println();
-
-				for (int i = 0; i < lstRoutes.size(); i++)
-				{
-					Route route = lstRoutes.get(i);
-					pw.println(route.getVilleDep().getNom() + "|" + route.getVilleArr().getNom() + "|" + route.getNbTronc());
-				}
-				pw.close();
 			}
-			catch (Exception e){ e.printStackTrace(); }
+
+			pw.println("Routes\n");
+			for (Route r : this.lstRoutes )
+			{
+				pw.println ( r.getVilleDep () + "\t" +
+				             r.getVilleArr () + "\t" +
+				             r.getNbTronc  () + "\n"   );
+
+			}
+			pw.close();
 		}
-		catch(Exception e) { System.out.println(e); }
+		catch (Exception e){}
 	}
 
 
@@ -146,7 +104,13 @@ public class Metier
 	public List<Route> getRoutes  () { return new ArrayList<Route>( this.lstRoutes ); }
 	public int         getNbVille () { return this.lstVilles.size();                  }
 
-	public Ville getVille ( int num ) { return this.lstVilles.get(num); }
+	public Ville getVille ( int    num ) { return this.lstVilles.get(num); }
+	public Ville getVille ( String nom ) 
+	{
+		for(Ville v : lstVilles)
+			if(v.getNom().equals(nom)) return v;
+		return null;
+	}
 
 	public Integer getIndiceVille ( int x, int y )
 	{
