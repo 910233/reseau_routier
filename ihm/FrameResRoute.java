@@ -6,15 +6,18 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
 import javax.swing.JFrame;
+import javax.swing.JMenuBar;
 
 public class FrameResRoute extends JFrame
 {
-	private Controleur    ctrl;
+	private Controleur ctrl;
+
 	private PanelResRoute panelResRoute;
 
 	public FrameResRoute(Controleur ctrl)
 	{
 		this.ctrl = ctrl;
+		this.setJMenuBar( new BarreMenu(ctrl) );
 		this.panelResRoute = new PanelResRoute( ctrl );
 		this.add ( this.panelResRoute );
 		this.addComponentListener( new GereFrame() );

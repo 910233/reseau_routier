@@ -3,12 +3,14 @@ package reseau_routier.ihm;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.util.List;
 
 import reseau_routier.Controleur;
+import reseau_routier.metier.Route;
 import reseau_routier.metier.Ville;
 
 public class PanelResRoute extends JPanel
-{
+{	
 	private Controleur ctrl;
 	private Graphics2D g2;
 
@@ -23,21 +25,40 @@ public class PanelResRoute extends JPanel
 	}
 	
 	public void paintComponent(Graphics g)
-	{	
-		Ville ville;
-		
+	{			
 		super.paintComponent(g);
-
 		g2 = (Graphics2D) g;
-		
-		
-		// Dessiner l'ensemble des figures
-		for (int cpt=ctrl.getNbVille()-1; cpt>=0; cpt--)
-		{
-			ville = this.ctrl.getVille ( cpt );
-			
-			g2.drawOval ( ville.getX()-Ville.TAILLE/2, ville.getY()-Ville.TAILLE/2, Ville.TAILLE, Ville.TAILLE );
 
+		Ville ville;
+		Route route;
+		List<Ville> lstVilles = this.ctrl.getVilles();
+		List<Route> lstRoutes = this.ctrl.getRoutes();
+		
+		// Dessiner l'ensemble des routes
+		g2.setColor(Color.BLACK);
+		for (int cpt=lstRoutes.size()-1; cpt>=0; cpt--)
+		{
+			route = lstRoutes.get( cpt );
+			
+			for(int i = 0; i <= route.getNbTronc(); i++)
+			{
+
+			}
+		}
+
+		// Dessiner l'ensemble des villes
+		for (int cpt=lstVilles.size()-1; cpt>=0; cpt--)
+		{
+			ville = lstVilles.get( cpt );
+			
+			g2.setColor(Color.RED);
+			g2.fillOval(ville.getX()-Ville.RAYON, 
+			            ville.getY()-Ville.RAYON, 
+						Ville.RAYON*2, 
+						Ville.RAYON*2            );
+			
+						g2.setColor(Color.BLACK);
+			g2.drawString(ville.getNom(), ville.getX(), ville.getY()-Ville.RAYON-5);
 		}
 	}
 

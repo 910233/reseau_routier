@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Objects;
 
 public class Ville
-{
-	public static final int TAILLE = 50;
+{	
+	public static final int RAYON = 20;
 	
 	private static int nbVilles = 0;
 	private        int nb;
@@ -98,11 +98,7 @@ public class Ville
 	
 	boolean possede ( int x, int y )
 	{
-		int xA, yA;
-
-		return this.distance(this.x, this.y, x, y) <= Ville.TAILLE/2;
-
-		//return this.distance(this.getCentreX(), this.getCentreY(), x, y) <= this.distance(this.getCentreX(), this.getCentreY(), this.getCentreX(), this.getCentreY())
+		return this.distance(this.x, this.y, x, y) <= Ville.RAYON;
 	}
 
 	private double distance(int x1, int y1, int x2, int y2)
