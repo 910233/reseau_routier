@@ -1,6 +1,7 @@
 package reseau_routier.ihm;
 
-public interface Saisie
+public interface Saisie<T>
 {
-	public abstract void reinitSaisie();
+	public T    getSaisie    ();
+	public void reinitSaisie ();
 }

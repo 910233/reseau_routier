@@ -5,11 +5,11 @@ import javax.swing.*;
 
 import reseau_routier.metier.Ville;
 
-public class PanelNvVilleSaisie extends JPanel implements Saisie
+public class PanelSaisirNvVille extends JPanel implements Saisie<Ville>
 {
 	private JTextField  txtNom, txtX, txtY;
 
-	public PanelNvVilleSaisie()
+	public PanelSaisirNvVille()
 	{
 		this.setLayout(new GridLayout(4, 2));
 
@@ -30,7 +30,7 @@ public class PanelNvVilleSaisie extends JPanel implements Saisie
 
 	}
 	
-	public Ville getNvVille() {
+	public Ville getSaisie() {
 		Ville ville;
 		String nom;
 		int x, y;
@@ -41,10 +41,7 @@ public class PanelNvVilleSaisie extends JPanel implements Saisie
 			y   = Integer.parseInt(this.txtY.getText());
 			ville = Ville.nvVille(nom, x, y);
 		} 
-		catch (Exception e) 
-		{
-			ville = null;
-		}
+		catch (Exception e) { ville = null; }
 
 		return ville;
 	}

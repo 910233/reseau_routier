@@ -17,24 +17,22 @@ public class GrilleVillesModel extends AbstractTableModel
 	public GrilleVillesModel (Controleur ctrl)
 	{
 		this.ctrl = ctrl;
-
 		this.majDonnees();
-
 		this.tabEntetes = new String[]{ "Numéro", "Nom", "X", "Y" };
 	}
 
 	public void majDonnees()
 	{
 		Ville ville;
-		List<Ville> lstVilles = this.ctrl.getVilles();
+		int nbVille = this.ctrl.getNbVille();
 
-		tabVilles = new Object[lstVilles.size()][4];
+		tabVilles = new Object[nbVille][4];
 
-		for ( int lig=0; lig<lstVilles.size(); lig++)
+		for ( int lig=0; lig<nbVille; lig++)
 		{
-			ville = lstVilles.get(lig);
+			ville = this.ctrl.getVille(lig);
 
-			tabVilles[lig][0] = ville.getNb  ();
+			tabVilles[lig][0] = ville.getNum ();
 			tabVilles[lig][1] = ville.getNom ();
 			tabVilles[lig][2] = ville.getX   ();
 			tabVilles[lig][3] = ville.getY   ();
@@ -47,7 +45,6 @@ public class GrilleVillesModel extends AbstractTableModel
 	public int    getRowCount   ()                 { return this.tabVilles.length;      }
 	public String getColumnName (int col)          { return this.tabEntetes[col];        }
 	public Object getValueAt    (int row, int col) { return this.tabVilles[row][col];   }
-	//public Class  getColumnClass(int c)            { return getValueAt(0, c).getClass(); }
 
 	public boolean isCellEditable(int row, int col)
 	{

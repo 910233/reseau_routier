@@ -1,31 +1,17 @@
 package reseau_routier.ihm;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
 
 import reseau_routier.Controleur;
 import reseau_routier.metier.Ville;
 
-public class FrameNvVille extends FrameNvD
+public class FrameNvVille extends FrameNvDonnee<Ville>
 {
-	public FrameNvVille (Controleur ctrl)
-	{ 
-		super(ctrl);
-		this.panelSaisie = new PanelNvVilleSaisie();
-		this.add((PanelNvVilleSaisie) this.panelSaisie, BorderLayout.CENTER); 
-	}
-	
-	public void valider ()
+	public FrameNvVille(Controleur ctrl)
 	{
-		Ville saisie = ((PanelNvVilleSaisie)this.panelSaisie).getNvVille();
-		System.out.println(saisie);
-		if(saisie != null)
-		{
-			this.ctrl.ajouterVille (saisie);
-			this.dispose();
-		}
-		else
-		{
-			this.panelSaisie.reinitSaisie();
-		}
+		super(ctrl);
+		this.panelSaisie = new PanelSaisirNvVille();
+		this.add((JPanel)this.panelSaisie, BorderLayout.CENTER);
 	}
 }

@@ -22,41 +22,42 @@ public class Controleur
 	}
 
 	// Accesseurs
-	public List<Route> getRoutes() { return this.metier.getRoutes(); }
-	public List<Ville> getVilles() { return this.metier.getVilles(); }
+	public int     getNbVille     ()             { return this.metier.getNbVille    ();     }
+	public int     getNbRoute     ()             { return this.metier.getNbRoute    ();     }
+	public Ville   getVille       (int    num)   { return this.metier.getVille      (num);  }
+	public Ville   getVille       (String nom)   { return this.metier.getVille      (nom);  }
+	public Route   getRoute       (int    num)   { return this.metier.getRoute      (num);  }
+	public Integer getIndiceVille (int x, int y) { return this.metier.getIndiceVille(x, y); }
+	
+	public List<Route> getCopieRoutes () { return this.metier.getCopieRoutes(); }
+	public List<Ville> getCopieVilles () { return this.metier.getCopieVilles(); }
+
+	public String[] getNomsVilles () { return this.metier.getNomsVilles(); }
 
 	// Modificateurs
 	public boolean majXVille ( int ligne, Integer x ) { return this.metier.majXVille(ligne, x); }
 	public boolean majYVille ( int ligne, Integer y ) { return this.metier.majYVille(ligne, y); }
 	
-	// Autres Méthodes
-	public void sauvegarder() { this.metier.sauvegarder(); }
-	
+	// Autres Méthodes	
 	public void creerVille() { new FrameNvVille(this); }
 	public void creerRoute() { new FrameNvRoute(this); }
 	
-	public void ajouterVille(Ville ville) 
-	{ 
-		this.metier.ajouterVille(ville); 
-		this.ihm.maj();
-	}
-	public void ajouterRoute(Route route) 
+	public void ajouter(Object obj) 
 	{
-		this.metier.ajouterRoute(route); 
+		if(obj instanceof Ville)
+			this.metier.ajouterVille((Ville)obj); 
+		if(obj instanceof Route)
+			this.metier.ajouterRoute((Route)obj); 
 		this.ihm.maj();
 	}
-
-	public void deplacerLesFrames(char orig) { if(this.ihm != null) this.ihm.deplacerLesFrames(orig); }
-
-	public int     getNbVille     ()             { return this.metier.getNbVille();         }
-	public Ville   getVille       (int num)      { return this.metier.getVille  (num);      }
-	public Integer getIndiceVille (int x, int y) { return this.metier.getIndiceVille(x, y); }
-	
 	public void deplacerVille(Integer numVilleActive, int x, int y) 
 	{
 		this.metier.deplacerVille(numVilleActive, x, y);
 		this.ihm.maj();
 	}
+
+	public void sauvegarder() { this.metier.sauvegarder(); }
+	public void deplacerLesFrames(char orig) { if(this.ihm != null) this.ihm.deplacerLesFrames(orig); }
 
 	public static void main(String[] a) { new Controleur(); }
 }

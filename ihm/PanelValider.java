@@ -3,13 +3,13 @@ package reseau_routier.ihm;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class PanelNvDAction extends JPanel implements ActionListener
+public class PanelValider<T> extends JPanel implements ActionListener
 {
-	private FrameNvD frame;
+	private FrameNvDonnee<T> frame;
 	private JButton  btnValider;
 	private JButton  btnAnnuler;
 
-	public PanelNvDAction (FrameNvD frame)
+	public PanelValider (FrameNvDonnee<T> frame)
 	{
 		this.frame = frame;
 

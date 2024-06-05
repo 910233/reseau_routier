@@ -9,7 +9,7 @@ public class Ville
 	public static final int RAYON = 20;
 	
 	private static int nbVilles = 0;
-	private        int nb;
+	private        int num;
 
 	private String nom;
 	private int    x;
@@ -22,7 +22,7 @@ public class Ville
 		this.nom = nom;
 		this.x   = x;
 		this.y   = y;
-		this.nb  = Ville.nbVilles++;
+		this.num = Ville.nbVilles++;
 
 		this.lstRoutes = new ArrayList<Route>();
 	}
@@ -37,12 +37,15 @@ public class Ville
 		return null;
 	}
 
-	public String      getNom      () { return this.nom       ;}
-	public int         getX        () { return this.x         ;}
-	public int         getY        () { return this.y         ;}
-	public int         getNb       () { return this.nb        ;}
-	public List<Route> getLstRoutes() { return this.lstRoutes ;}
+	// Accesseurs
+	public String getNom () { return this.nom; }
+	public int    getX   () { return this.x;   }
+	public int    getY   () { return this.y;   }
+	public int    getNum () { return this.num; }
 
+	public Route getRoute(int i) { return this.lstRoutes.get(i); }
+
+	// Modificateurs
 	public boolean setNom(String nom)
 	{
 		this.nom = nom;
@@ -69,24 +72,20 @@ public class Ville
 		return false;
 	}
 
-	public boolean ajouterRoute(Route route)
-	{
-		this.lstRoutes.add(route);
-		return true;
-	}
+	public void ajouterRoute(Route route) { this.lstRoutes.add(route); }
 	
 	public String toString() {
 		String sRes = "";
 		sRes +=  "{" +
-			     " nb='" + getNb() + "'" +
+			     " nb='" + getNum() + "'" +
 			     ", nom='" + getNom() + "'" +
 			     ", x='" + getX() + "'" +
 			     ", y='" + getY() + "'" +
 			     ", lstRoutes='";
 
-		for (int i = 0; i < getLstRoutes().size(); i++)
+		for (int i = 0; i < this.lstRoutes.size(); i++)
 		{
-			sRes += getLstRoutes().get(i).getVilleDep().getNom() + "->" + getLstRoutes().get(i).getVilleArr().getNom() + " / ";
+			sRes += this.lstRoutes.get(i).getVilleDep().getNom() + "->" + this.lstRoutes.get(i).getVilleArr().getNom() + " / ";
 		}
 
 		sRes += "'" + "}";

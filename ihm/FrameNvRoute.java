@@ -1,31 +1,17 @@
 package reseau_routier.ihm;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
 
 import reseau_routier.Controleur;
 import reseau_routier.metier.Route;
 
-public class FrameNvRoute extends FrameNvD
+public class FrameNvRoute extends FrameNvDonnee<Route>
 {
-	public FrameNvRoute (Controleur ctrl)
-	{ 
-		super(ctrl); 
-		this.panelSaisie = new PanelNvRouteSaisie();
-		this.add((PanelNvRouteSaisie) this.panelSaisie, BorderLayout.CENTER);
-	}
-	
-	public void valider ()
+	public FrameNvRoute(Controleur ctrl)
 	{
-		Route saisie = ((PanelNvRouteSaisie)this.panelSaisie).getNvRoute();
-		System.out.println(saisie);
-		if(saisie != null)
-		{
-			this.ctrl.ajouterRoute (saisie);
-			this.dispose();
-		}
-		else
-		{
-			this.panelSaisie.reinitSaisie();
-		}
+		super(ctrl);
+		this.panelSaisie = new PanelSaisirNvRoute(this.ctrl);
+		this.add((JPanel)this.panelSaisie, BorderLayout.CENTER);
 	}
 }

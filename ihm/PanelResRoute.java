@@ -31,8 +31,8 @@ public class PanelResRoute extends JPanel
 
 		Ville ville;
 		Route route;
-		List<Ville> lstVilles = this.ctrl.getVilles();
-		List<Route> lstRoutes = this.ctrl.getRoutes();
+		List<Ville> lstVilles = this.ctrl.getCopieVilles();
+		List<Route> lstRoutes = this.ctrl.getCopieRoutes();
 		
 		// Dessiner l'ensemble des routes
 		g2.setColor(Color.BLACK);

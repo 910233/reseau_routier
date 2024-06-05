@@ -6,25 +6,29 @@ public class Route
 	private Ville villeDepart;
 	private Ville villeArrivee;
 
-	private Route (int troncons, Ville villeDepart, Ville villeArrivee)
+	private Route (Ville villeDepart, Ville villeArrivee, int troncons)
 	{
-		this.troncons = troncons;
-		this.villeDepart = villeDepart;
+		this.villeDepart  = villeDepart;
 		this.villeArrivee = villeArrivee;
+		this.troncons     = troncons;
 	}
 
-	public static Route nvRoute (int troncons, Ville villeDepart, Ville villeArrivee)
+	public static Route nvRoute (Ville villeDepart, Ville villeArrivee, int troncons)
 	{
-		if (villeDepart != villeArrivee && troncons >= 0 && troncons <= 10)
-			return new Route(troncons, villeDepart, villeArrivee);
+		if (   villeDepart  != null
+		    && villeDepart  != villeArrivee 
+			&& 0 <= troncons && troncons <= 10)
+			return new Route(villeDepart, villeArrivee, troncons);
 
 		return null;
 	}
 
+	// Accesseurss
 	public int   getNbTronc  () { return this.troncons    ; }
 	public Ville getVilleDep () { return this.villeDepart ; }
 	public Ville getVilleArr () { return this.villeArrivee; }
 
+	// Modificateurs
 	public boolean setTroncons (int troncons)
 	{
 		if (troncons >= 0 && troncons <= 10)
@@ -55,6 +59,7 @@ public class Route
 		return false;
 	}
 
+	// Autres Methodes
 	public String toString() {
 		return "{" +
 			" troncons='" + getNbTronc() + "'" +
