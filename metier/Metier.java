@@ -5,7 +5,6 @@ import java.util.List;
 
 import java.util.Scanner;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
@@ -121,9 +120,6 @@ public class Metier
 
 	public int   getNbRoute ()          { return this.lstRoutes.size();   }
 	public Route getRoute   ( int num ) { return this.lstRoutes.get(num); }
-
-	public List<Route> getCopieRoutes  () { return new ArrayList<Route>( this.lstRoutes ); }	
-	public List<Ville> getCopieVilles  () { return new ArrayList<Ville>( this.lstVilles ); }
 	
 	public String[] getNomsVilles () 
 	{ 
@@ -137,25 +133,27 @@ public class Metier
 	}
 
 	// Autres méthodes
+	public boolean routeExiste(Ville villeDep, Ville villeArr) 
+	{
+		boolean retour = false;
+		
+		for(int i = 0; i < this.lstRoutes.size() && !retour; i++)
+		{
+			Route r = this.lstRoutes.get(i);
+			if((r.getVilleDep() == villeDep && r.getVilleArr() == villeArr)
+				||
+			   (r.getVilleDep() == villeDep && r.getVilleArr() == villeArr)) 
+			   retour = true;
+		}
+
+		return retour; 
+	}
 
 	public boolean majXVille ( int ligne, Integer x ) { return this.lstVilles.get(ligne).setX(x); }
 	public boolean majYVille ( int ligne, Integer y ) { return this.lstVilles.get(ligne).setY(y); }
 	
 	public void ajouterVille (Ville ville) { this.lstVilles.add(ville); }
-	public void ajouterRoute (Route route) 
-	{ 
-		boolean bOk = true;
-		
-		for(int i = 0; i < this.lstRoutes.size() && bOk;)
-		{
-			Route r = this.lstRoutes.get(i);
-			if(   r.getVilleDep() == route.getVilleDep() 
-			   && r.getVilleArr() == route.getVilleArr());
-				bOk = false;
-		}
-
-		if(bOk) this.lstRoutes.add(route); 
-	}
+	public void ajouterRoute (Route route) { this.lstRoutes.add(route); }
 
 	public void deplacerVille ( Integer numVille, int x, int y )
 	{

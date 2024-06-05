@@ -49,13 +49,15 @@ public class PanelSaisirNvRoute  extends JPanel implements Saisie<Route>, Adjust
 		Ville villeDep, villeArr;
 		int nbTronc;
 		
+		route = null;
 		try {
 			villeDep = this.ctrl.getVille((String)this.ddlstVillesDep.getSelectedItem());
 			villeArr = this.ctrl.getVille((String)this.ddlstVillesArr.getSelectedItem());
-			nbTronc  = this.sbNbTronc.getValue() ;
-			route = Route.nvRoute(villeDep, villeArr, nbTronc);
+			nbTronc  = this.sbNbTronc.getValue();
+			if(!this.ctrl.routeExiste(villeDep, villeArr))
+				route = Route.nvRoute(villeDep, villeArr, nbTronc);
 		} 
-		catch (Exception e) { route = null; }
+		catch (Exception e) {}
 
 		return route;
 	}

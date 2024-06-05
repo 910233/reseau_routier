@@ -35,13 +35,14 @@ public class PanelSaisirNvVille extends JPanel implements Saisie<Ville>
 		String nom;
 		int x, y;
 
+		ville = null;
 		try {
 			nom = this.txtNom.getText();
 			x   = Integer.parseInt(this.txtX.getText());
 			y   = Integer.parseInt(this.txtY.getText());
 			ville = Ville.nvVille(nom, x, y);
 		} 
-		catch (Exception e) { ville = null; }
+		catch (Exception e) {}
 
 		return ville;
 	}

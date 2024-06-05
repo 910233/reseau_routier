@@ -15,15 +15,31 @@ public class Route
 
 	public static Route nvRoute (Ville villeDepart, Ville villeArrivee, int troncons)
 	{
+		Route route;
+		
+		route = null;
 		if (   villeDepart  != null
 		    && villeDepart  != villeArrivee 
 			&& 0 <= troncons && troncons <= 10)
-			return new Route(villeDepart, villeArrivee, troncons);
+		{
+			route = new Route(villeDepart, villeArrivee, troncons);
+			villeDepart.ajouterRoute(route);
+			villeArrivee.ajouterRoute(route);
+		}
 
-		return null;
+		/*
+		for(int i = 0; i < villeDepart.getNbRoute() && bOk; i++)
+		{
+			route = villeDepart.getRoute(i);
+			if(   route.getVilleDep() == villeDepart
+			   && route.getVilleArr() == villeArrivee) bOk = false;
+		}
+		*/
+		
+		return route;
 	}
 
-	// Accesseurss
+	// Accesseurs
 	public int   getNbTronc  () { return this.troncons    ; }
 	public Ville getVilleDep () { return this.villeDepart ; }
 	public Ville getVilleArr () { return this.villeArrivee; }
@@ -41,7 +57,7 @@ public class Route
 
 	public boolean setDepart (Ville villeDepart)
 	{
-		if (villeDepart != this.villeArrivee)
+		if (villeDepart != null && villeDepart != this.villeArrivee)
 		{
 			this.villeDepart = villeDepart;
 			return true;
@@ -51,7 +67,7 @@ public class Route
 
 	public boolean setArrivee (Ville villeArrivee)
 	{
-		if (villeArrivee != this.villeDepart)
+		if (villeArrivee != null &&  villeArrivee != this.villeDepart)
 		{
 			this.villeArrivee = villeArrivee;
 			return true;
@@ -59,7 +75,7 @@ public class Route
 		return false;
 	}
 
-	// Autres Methodes
+	// Autres Méthodes
 	public String toString() {
 		return "{" +
 			" troncons='" + getNbTronc() + "'" +

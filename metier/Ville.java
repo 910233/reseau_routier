@@ -2,7 +2,6 @@ package reseau_routier.metier;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Ville
 {	
@@ -43,13 +42,18 @@ public class Ville
 	public int    getY   () { return this.y;   }
 	public int    getNum () { return this.num; }
 
-	public Route getRoute(int i) { return this.lstRoutes.get(i); }
+	public Route getRoute   (int i) { return this.lstRoutes.get(i); }
+	public int   getNbRoute ()      { return this.lstRoutes.size(); }
 
 	// Modificateurs
 	public boolean setNom(String nom)
 	{
-		this.nom = nom;
-		return true;
+		if (!"".equals(nom))
+		{
+			this.nom = nom;
+			return true;
+		}
+		return false;
 	}
 
 	public boolean setX(int x)
@@ -72,6 +76,7 @@ public class Ville
 		return false;
 	}
 
+	// Autres méthodes
 	public void ajouterRoute(Route route) { this.lstRoutes.add(route); }
 	
 	public String toString() {
@@ -92,15 +97,15 @@ public class Ville
 
 		return sRes;
 	}
-	void deplacerX (int x) { this.x += x;         }
-	void deplacerY (int y) { this.y += y;         }
+	void deplacerX (int x) { this.x += x; }
+	void deplacerY (int y) { this.y += y; }
 	
 	boolean possede ( int x, int y )
 	{
-		return this.distance(this.x, this.y, x, y) <= Ville.RAYON;
+		return Ville.distance(this.x, this.y, x, y) <= Ville.RAYON;
 	}
 
-	private double distance(int x1, int y1, int x2, int y2)
+	private static double distance(int x1, int y1, int x2, int y2)
 	{
 		return Math.sqrt((x1-x2) * (x1-x2) + (y1-y2) * (y1-y2));
 	}

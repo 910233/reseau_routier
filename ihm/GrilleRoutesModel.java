@@ -1,12 +1,10 @@
 package reseau_routier.ihm;
 
-import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
 import reseau_routier.Controleur;
 import reseau_routier.metier.Route;
-import reseau_routier.metier.Ville;
 
 public class GrilleRoutesModel extends AbstractTableModel
 {
@@ -45,12 +43,5 @@ public class GrilleRoutesModel extends AbstractTableModel
 	public int    getRowCount   ()                 { return this.tabRoutes.length;      }
 	public String getColumnName (int col)          { return this.tabEntetes[col];        }
 	public Object getValueAt    (int row, int col) { return this.tabRoutes[row][col];   }
-
-	/*
-	public boolean isCellEditable(int row, int col)
-	{
-		return false;
-	}
-	*/
 
 }

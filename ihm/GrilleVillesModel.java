@@ -1,7 +1,5 @@
 package reseau_routier.ihm;
 
-import java.util.List;
-
 import javax.swing.table.AbstractTableModel;
 
 import reseau_routier.Controleur;
@@ -57,21 +55,23 @@ public class GrilleVillesModel extends AbstractTableModel
 
 		if ( col == 2 )
 		{
-			bRet = this.ctrl.majXVille ( row, (Integer) value );
+			bRet = this.ctrl.majXVille ( row, Integer.parseInt((String) value) );
 			if ( bRet )
 			{
 				this.tabVilles[row][col] = value;
 				this.fireTableCellUpdated(row, col);
+				this.ctrl.majIHM();
 			}
 		}
 		
 		if ( col == 3 )
 		{
-			bRet = this.ctrl.majYVille ( row, (Integer) value );
+			bRet = this.ctrl.majYVille ( row, Integer.parseInt((String) value) );
 			if ( bRet )
 			{
 				this.tabVilles[row][col] = value;
 				this.fireTableCellUpdated(row, col);
+				this.ctrl.majIHM();
 			}
 		}
  		

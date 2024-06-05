@@ -31,15 +31,31 @@ public class PanelResRoute extends JPanel
 
 		Ville ville;
 		Route route;
-		List<Ville> lstVilles = this.ctrl.getCopieVilles();
-		List<Route> lstRoutes = this.ctrl.getCopieRoutes();
+		int x1, y1, x2, y2;
+		BasicStroke bs;
 		
 		// Dessiner l'ensemble des routes
 		g2.setColor(Color.BLACK);
-		for (int cpt=lstRoutes.size()-1; cpt>=0; cpt--)
+		for (int cpt=this.ctrl.getNbRoute()-1; cpt>=0; cpt--)
 		{
-			route = lstRoutes.get( cpt );
+			route = this.ctrl.getRoute( cpt );
+
+			x1 = route.getVilleDep().getX();
+			y1 = route.getVilleDep().getY();
+			x2 = route.getVilleArr().getX();
+			y2 = route.getVilleArr().getY();
+
+			bs = new BasicStroke(
+			2,
+            BasicStroke.CAP_BUTT,
+            BasicStroke.JOIN_BEVEL,
+            0,
+            new float[]{ 100, 10},
+        	0);
 			
+			g2.setStroke(bs);
+			g2.drawLine(x1, y1, x2, y2);
+
 			for(int i = 0; i <= route.getNbTronc(); i++)
 			{
 
@@ -47,9 +63,9 @@ public class PanelResRoute extends JPanel
 		}
 
 		// Dessiner l'ensemble des villes
-		for (int cpt=lstVilles.size()-1; cpt>=0; cpt--)
+		for (int cpt=this.ctrl.getNbVille()-1; cpt>=0; cpt--)
 		{
-			ville = lstVilles.get( cpt );
+			ville = this.ctrl.getVille( cpt );
 			
 			g2.setColor(Color.RED);
 			g2.fillOval(ville.getX()-Ville.RAYON, 
@@ -60,6 +76,11 @@ public class PanelResRoute extends JPanel
 						g2.setColor(Color.BLACK);
 			g2.drawString(ville.getNom(), ville.getX(), ville.getY()-Ville.RAYON-5);
 		}
+	}
+
+	private static float distance(int x1, int y1, int x2, int y2)
+	{
+		return (float)Math.sqrt((x1-x2) * (x1-x2) + (y1-y2) * (y1-y2));
 	}
 
 	private class GereSouris extends MouseAdapter
