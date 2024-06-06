@@ -93,7 +93,6 @@ public class PanelResRoute extends JPanel
 			{
 				PanelResRoute.this.ctrl.deplacerVille ( this.numVilleActive, e.getX()-this.posX, e.getY()-this.posY );
 
-				// Ne pas oublier de mettre à jour les futures anciennes coordonnées de la souris
 				this.posX = e.getX();
 				this.posY = e.getY();
 				

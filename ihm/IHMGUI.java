@@ -7,7 +7,7 @@ import reseau_routier.Controleur;
 
 public class IHMGUI
 {
-	private static final int HAUTEUR_RR    = 800;
+	private static final int HAUTEUR_RR    = 820;
 	private static final int HAUTEUR_ROUTE = 400;
 	private static final int HAUTEUR_VILLE = 400;
 	private static final int LARGEUR_RR    = 1000;

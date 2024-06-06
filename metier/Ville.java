@@ -97,8 +97,18 @@ public class Ville
 
 		return sRes;
 	}
-	public void deplacerX (int x) { this.x += x; }
-	public void deplacerY (int y) { this.y += y; }
+	public void deplacerX (int deltaX) 
+	{ 
+		if      (this.x + deltaX <= 0)    this.x = 0; 
+		else if (this.x + deltaX >= 1000) this.x = 1000; 
+		else                              this.x += deltaX;
+	}
+	public void deplacerY (int deltaY) 
+	{ 
+		if      (this.y + deltaY <= 0)   this.y = 0; 
+		else if (this.y + deltaY >= 800) this.y = 800; 
+		else                             this.y += deltaY; 
+	}
 	
 	public boolean possede ( int x, int y )
 	{

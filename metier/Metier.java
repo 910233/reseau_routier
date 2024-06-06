@@ -47,14 +47,12 @@ public class Metier
 
 				this.lstVilles.add(Ville.nvVille(nom, x, y));
 				s = scFic.nextLine();
-				System.out.println(s);
 			}
 
 			s = scFic.nextLine();
 			while ( scFic.hasNextLine() && !"".equals(s) )
 			{
 				scLig = new Scanner(s);
-				System.out.println(s);
 				scLig.useDelimiter("\t");
 
 				villeDep = scLig.next();
@@ -155,12 +153,12 @@ public class Metier
 	public void ajouterVille (Ville ville) { this.lstVilles.add(ville); }
 	public void ajouterRoute (Route route) { this.lstRoutes.add(route); }
 
-	public void deplacerVille ( Integer numVille, int x, int y )
+	public void deplacerVille ( Integer numVille, int deltaX, int deltaY )
 	{
 		if ( numVille != null && numVille >=0 && numVille < this.lstVilles.size() )
 		{
-			this.lstVilles.get(numVille).deplacerX(x);
-			this.lstVilles.get(numVille).deplacerY(y);
+			this.lstVilles.get(numVille).deplacerX(deltaX);
+			this.lstVilles.get(numVille).deplacerY(deltaY);
 		}
 		
 	}	

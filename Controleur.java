@@ -50,9 +50,9 @@ public class Controleur
 			this.metier.ajouterRoute((Route)obj); 
 		this.majIHM();
 	}
-	public void deplacerVille(Integer numVilleActive, int x, int y) 
+	public void deplacerVille(Integer numVilleActive, int deltaX, int deltaY) 
 	{
-		this.metier.deplacerVille(numVilleActive, x, y);
+		this.metier.deplacerVille(numVilleActive, deltaX, deltaY);
 		this.majIHM();
 	}
 
