@@ -2,8 +2,6 @@ package reseau_routier;
 
 import reseau_routier.metier.Metier;
 
-import java.util.List;
-
 import reseau_routier.ihm.FrameNvRoute;
 import reseau_routier.ihm.FrameNvVille;
 import reseau_routier.ihm.IHMGUI;

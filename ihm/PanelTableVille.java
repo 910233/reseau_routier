@@ -1,7 +1,6 @@
 package reseau_routier.ihm;
 import java.awt.*;
 import javax.swing.*;
-import javax.swing.table.TableColumn;
 
 import reseau_routier.Controleur;
 

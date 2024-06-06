@@ -3,14 +3,22 @@
 ./metier/Route.java
 ./metier/Metier.java
 
+./ihm/BarreMenu.java
+./ihm/FrameNvDonnee.java
+./ihm/FrameNvRoute.java
+./ihm/FrameNvVille.java
+./ihm/Saisie.java
+./ihm/PanelSaisirNvVille.java
+./ihm/PanelSaisirNvRoute.java
+./ihm/PanelValider.java
 ./ihm/FrameVille.java
 ./ihm/FrameRoute.java
 ./ihm/FrameResRoute.java
+./ihm/PanelResRoute.java
 ./ihm/PanelTableVille.java
+./ihm/PanelTableRoute.java
 ./ihm/GrilleVillesModel.java
-./ihm/PanelActionVille.java
-./ihm/PanelNvVilleSaisie.java
-./ihm/PanelNvVilleAction.java
+./ihm/GrilleRoutesModel.java
 ./ihm/IHMGUI.java
 
 ./Controleur.java

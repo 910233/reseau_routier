@@ -32,7 +32,7 @@ public class Metier
 
 		try
 		{
-			scFic = new Scanner ( new FileInputStream ( "donnees.data" ), "UTF8" );
+			scFic = new Scanner ( new FileInputStream ( "./reseau_routier/donnees.data" ), "UTF8" );
 			s     = "";
 
 			if(scFic.hasNextLine()) s = scFic.nextLine();
@@ -75,7 +75,7 @@ public class Metier
 		System.out.println("sauvegarder");
 		try
 		{
-			PrintWriter pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream("donnees.data"), "UTF8" ));
+			PrintWriter pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream("./reseau_routier/donnees.data"), "UTF8" ));
 
 			for (Ville v : this.lstVilles )
 			{
