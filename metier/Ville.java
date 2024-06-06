@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Ville
 {	
-	public static final int RAYON = 20;
-	
+	public static final int RAYON = 10;
+
 	private static int nbVilles = 0;
 	private        int num;
 
@@ -75,9 +75,9 @@ public class Ville
 		}
 		return false;
 	}
+	public void ajouterRoute(Route route) { this.lstRoutes.add(route); }
 
 	// Autres méthodes
-	public void ajouterRoute(Route route) { this.lstRoutes.add(route); }
 	
 	public String toString() {
 		String sRes = "";
@@ -97,15 +97,15 @@ public class Ville
 
 		return sRes;
 	}
-	void deplacerX (int x) { this.x += x; }
-	void deplacerY (int y) { this.y += y; }
+	public void deplacerX (int x) { this.x += x; }
+	public void deplacerY (int y) { this.y += y; }
 	
-	boolean possede ( int x, int y )
+	public boolean possede ( int x, int y )
 	{
 		return Ville.distance(this.x, this.y, x, y) <= Ville.RAYON;
 	}
 
-	private static double distance(int x1, int y1, int x2, int y2)
+	public static double distance(int x1, int y1, int x2, int y2)
 	{
 		return Math.sqrt((x1-x2) * (x1-x2) + (y1-y2) * (y1-y2));
 	}

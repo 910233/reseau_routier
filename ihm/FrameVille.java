@@ -10,7 +10,7 @@ public class FrameVille extends JFrame implements ActionListener
 {
 	private Controleur ctrl;
 
-	private  JButton         btnCreerVille;
+	private JButton         btnCreerVille;
 	private PanelTableVille panelTableVille;
 
 	public FrameVille(Controleur ctrl)
@@ -18,7 +18,7 @@ public class FrameVille extends JFrame implements ActionListener
 		this.ctrl = ctrl;
 
 		// Création des composants
-		this.panelTableVille  = new PanelTableVille (this.ctrl);
+		this.panelTableVille   = new PanelTableVille (this.ctrl);
 		this.btnCreerVille     = new JButton ( "Créer Ville" );
 		JPanel panelCreerVille = new JPanel();
 

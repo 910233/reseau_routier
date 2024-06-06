@@ -7,10 +7,12 @@ import reseau_routier.Controleur;
 
 public class IHMGUI
 {
-	private static final int HAUTEUR       = 800;
-	private static final int LARGEUR_RR    = 1000;
-	private static final int LARGEUR_ROUTE = 250;
-	private static final int LARGEUR_VILLE = 250;
+	public static final int HAUTEUR_RR    = 800;
+	public static final int HAUTEUR_ROUTE = 400;
+	public static final int HAUTEUR_VILLE = 400;
+	public static final int LARGEUR_RR    = 1000;
+	public static final int LARGEUR_ROUTE = 250;
+	public static final int LARGEUR_VILLE = 250;
 
 	private FrameResRoute frameResRoute;
 	private FrameRoute    frameRoute;
@@ -23,21 +25,21 @@ public class IHMGUI
 		this.frameVille    = new FrameVille(ctrl);
 
 		this.frameVille.setTitle       ("Villes");
-		this.frameVille.setSize        ( IHMGUI.LARGEUR_VILLE, IHMGUI.HAUTEUR );
+		this.frameVille.setSize        ( IHMGUI.LARGEUR_VILLE, IHMGUI.HAUTEUR_VILLE );
 		this.frameVille.setLocation    ( 20, 20 );
 		this.frameVille.setResizable   (false);
 		this.frameVille.setVisible     ( true );
 		this.frameVille.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		this.frameResRoute.setTitle    ("Réseau routier");
-		this.frameResRoute.setSize     ( IHMGUI.LARGEUR_RR, IHMGUI.HAUTEUR );
+		this.frameResRoute.setSize     ( IHMGUI.LARGEUR_RR, IHMGUI.HAUTEUR_RR );
 		this.frameResRoute.setLocation ( IHMGUI.LARGEUR_VILLE + 20, 20 );
 		this.frameResRoute.setResizable(false);
 		this.frameResRoute.setVisible  ( true );
 		this.frameResRoute.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		this.frameRoute.setTitle       ("Routes");
-		this.frameRoute.setSize        ( IHMGUI.LARGEUR_ROUTE, IHMGUI.HAUTEUR );
+		this.frameRoute.setSize        ( IHMGUI.LARGEUR_ROUTE, IHMGUI.HAUTEUR_ROUTE );
 		this.frameRoute.setLocation    ( IHMGUI.LARGEUR_VILLE + IHMGUI.LARGEUR_RR + 20, 20);
 		this.frameRoute.setResizable   (false);
 		this.frameRoute.setVisible     ( true );
@@ -55,7 +57,7 @@ public class IHMGUI
 			if ( orig == 'G')
 			{
 				p = this.frameResRoute.getLocation();
-				this.frameRoute.setLocation    (p.x + IHMGUI.LARGEUR_RR, p.y);
+				this.frameRoute.setLocation(p.x + IHMGUI.LARGEUR_RR, p.y);
 				this.frameVille.setLocation(p.x - IHMGUI.LARGEUR_VILLE, p.y);
 			}
 			// Routes (R)

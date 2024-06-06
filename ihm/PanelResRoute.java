@@ -3,7 +3,6 @@ package reseau_routier.ihm;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import java.util.List;
 
 import reseau_routier.Controleur;
 import reseau_routier.metier.Route;
@@ -32,7 +31,7 @@ public class PanelResRoute extends JPanel
 		Ville ville;
 		Route route;
 		int x1, y1, x2, y2;
-		BasicStroke bs;
+		float segment, espace;
 		
 		// Dessiner l'ensemble des routes
 		g2.setColor(Color.BLACK);
@@ -45,21 +44,18 @@ public class PanelResRoute extends JPanel
 			x2 = route.getVilleArr().getX();
 			y2 = route.getVilleArr().getY();
 
-			bs = new BasicStroke(
-			2,
-            BasicStroke.CAP_BUTT,
-            BasicStroke.JOIN_BEVEL,
-            0,
-            new float[]{ 100, 10},
-        	0);
+			espace  = route.getNbTronc() * 3;
+			segment = ((float) Ville.distance(x1, y1, x2, y2)) / (route.getNbTronc()+1) - espace;
+
+			g2.setStroke(new BasicStroke(
+			2, 
+			BasicStroke.CAP_BUTT, 
+			BasicStroke.JOIN_ROUND, 
+			0, 
+			new float[]{segment, espace},
+			0));
 			
-			g2.setStroke(bs);
 			g2.drawLine(x1, y1, x2, y2);
-
-			for(int i = 0; i <= route.getNbTronc(); i++)
-			{
-
-			}
 		}
 
 		// Dessiner l'ensemble des villes
@@ -72,15 +68,10 @@ public class PanelResRoute extends JPanel
 			            ville.getY()-Ville.RAYON, 
 						Ville.RAYON*2, 
 						Ville.RAYON*2            );
-			
-						g2.setColor(Color.BLACK);
+
+			g2.setColor(Color.BLACK);
 			g2.drawString(ville.getNom(), ville.getX(), ville.getY()-Ville.RAYON-5);
 		}
-	}
-
-	private static float distance(int x1, int y1, int x2, int y2)
-	{
-		return (float)Math.sqrt((x1-x2) * (x1-x2) + (y1-y2) * (y1-y2));
 	}
 
 	private class GereSouris extends MouseAdapter

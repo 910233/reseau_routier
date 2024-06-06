@@ -18,7 +18,7 @@ public class FrameRoute extends JFrame implements ActionListener
 		this.ctrl = ctrl;
 
 		// Création des composants
-		this.panelTableRoute  = new PanelTableRoute (this.ctrl);
+		this.panelTableRoute   = new PanelTableRoute (this.ctrl);
 		this.btnCreerRoute     = new JButton ( "Créer Route" );
 		JPanel panelCreerRoute = new JPanel();
 

@@ -1,13 +1,15 @@
 package reseau_routier.ihm;
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.table.TableColumn;
 
 import reseau_routier.Controleur;
 
 
 public class PanelTableVille extends JPanel
 {
-	private Controleur        ctrl;
+	private Controleur ctrl;
+
 	private GrilleVillesModel grilleDonnees;
 	private JTable            tblGrilleDonnees;
 
@@ -31,6 +33,4 @@ public class PanelTableVille extends JPanel
 	}
 
 	public void majTableau() { this.grilleDonnees.majDonnees(); }
-
-
 }

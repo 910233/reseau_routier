@@ -16,7 +16,7 @@ public class GrilleVillesModel extends AbstractTableModel
 	{
 		this.ctrl = ctrl;
 		this.majDonnees();
-		this.tabEntetes = new String[]{ "Numéro", "Nom", "X", "Y" };
+		this.tabEntetes = new String[]{ "Num", "Nom", "X", "Y" };
 	}
 
 	public void majDonnees()
