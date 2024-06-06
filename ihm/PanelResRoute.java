@@ -30,7 +30,7 @@ public class PanelResRoute extends JPanel
 
 		Ville ville;
 		Route route;
-		int x1, y1, x2, y2;
+		int x1, y1, x2, y2, nbTronc;
 		float segment, espace;
 		
 		// Dessiner l'ensemble des routes
@@ -43,17 +43,26 @@ public class PanelResRoute extends JPanel
 			y1 = route.getVilleDep().getY();
 			x2 = route.getVilleArr().getX();
 			y2 = route.getVilleArr().getY();
+			nbTronc = route.getNbTronc();
 
-			espace  = route.getNbTronc() * 3;
-			segment = ((float) Ville.distance(x1, y1, x2, y2)) / (route.getNbTronc()+1) - espace;
+			if(nbTronc == 0)
+			{
+				g2.setStroke(new BasicStroke(2));
+			}
+			else
+			{
+				espace  = ((float) Ville.distance(x1, y1, x2, y2)) * 0.1f / nbTronc;
+				segment = ((float) Ville.distance(x1, y1, x2, y2)) * 0.9f / nbTronc + espace / nbTronc;
 
-			g2.setStroke(new BasicStroke(
-			2, 
-			BasicStroke.CAP_BUTT, 
-			BasicStroke.JOIN_ROUND, 
-			0, 
-			new float[]{segment, espace},
-			0));
+				
+				g2.setStroke(new BasicStroke(
+				2, 
+				BasicStroke.CAP_BUTT, 
+				BasicStroke.JOIN_ROUND, 
+				0, 
+				new float[]{segment, espace},
+				0));
+			}
 			
 			g2.drawLine(x1, y1, x2, y2);
 		}
